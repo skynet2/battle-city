@@ -17,6 +17,11 @@
             <e p="Common" t="Include">
               <e p="BaseDestroyable.cs" t="Include" />
             </e>
+            <e p="Maps" t="Include">
+              <e p="Map.cs" t="Include" />
+              <e p="MapBlock.cs" t="Include" />
+              <e p="MapBlockType.cs" t="Include" />
+            </e>
           </e>
           <e p="PlayerControl.cs" t="Include" />
           <e p="TankUser.cs" t="Include" />
@@ -28,7 +33,6 @@
             </e>
           </e>
         </e>
-        <e p="Wood.cs" t="Include" />
       </e>
       <e p="battle-city.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

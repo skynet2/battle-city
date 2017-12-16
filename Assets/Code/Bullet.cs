@@ -25,7 +25,7 @@ namespace Assets.Code
         {
             var obj = col.gameObject.GetComponent<BaseDestroyable>();
 
-            if (obj != null)
+            if (obj != null) 
             {
                 obj.Damage(Damage, TankId, false);
             }
