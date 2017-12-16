@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Code;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player
 {
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour
     [Header("References")]
     public GameObject TankPrefab;
     public GameObject BorderPrefab;
+    public GameObject LevelObjects;
     
     public Camera Camera;
     
@@ -25,7 +27,7 @@ public class GameController : MonoBehaviour
 
     public bool canSelfDamage = true;
 
-
+    
     private Player _selfPlayer;
     private readonly List<Player> _bots = new List<Player>();
     
@@ -36,19 +38,23 @@ public class GameController : MonoBehaviour
         var halfHeight = Camera.orthographicSize;
         var halfWidth = Camera.orthographicSize* Camera.aspect;
          print(Camera.aspect);
-       
-        for (float i = -halfWidth; i < halfWidth ; i += 1.125f)
+
+        var offset = 0.75f;
+        
+        for (float i = -halfWidth; i < halfWidth + 1 ; i += 1.125f)
         {
-            print("HalfHeigt - " + (-halfHeight + 0.75f));
-            Instantiate(BorderPrefab, new Vector3(i,(-halfHeight + 0.75f)), Quaternion.identity);
-            Instantiate(BorderPrefab, new Vector3(i, halfHeight - 0.75f), Quaternion.identity);
+            print("HalfHeigt - " + (-halfHeight + offset));
+            Instantiate(BorderPrefab, new Vector3(i,(-halfHeight + offset - 1.7f)), Quaternion.identity);
+            Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
         }
         for (float i = -halfHeight; i < halfHeight ; i += 1.125f)
         {
-            print("HalfWidth - " + (-halfWidth + 0.75f));
-            Instantiate(BorderPrefab, new Vector3((-halfWidth + 0.75f),i), Quaternion.identity);
-            Instantiate(BorderPrefab, new Vector3(halfWidth - 0.75f,i), Quaternion.identity);
+            print("HalfWidth - " + (-halfWidth + offset));
+            Instantiate(BorderPrefab, new Vector3((-halfWidth + offset),i), Quaternion.identity);
+            Instantiate(BorderPrefab, new Vector3(halfWidth - offset +1.7f,i), Quaternion.identity);
         }
+        var grid = LevelObjects.GetComponent<Grid>();
+        var mep = LevelObjects.GetComponent<Tilemap>();
         var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
         
         _selfPlayer = new Player()
