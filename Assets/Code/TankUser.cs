@@ -6,6 +6,7 @@ using System.Text;
 using Code.Objects.Common;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 namespace Assets.Code
 {
@@ -13,7 +14,7 @@ namespace Assets.Code
     {
         public int Id = -1;
         public int DamagePerShoot = 50;
-        public float BulletSpeed = 33;
+        public float BulletSpeed = 650;
         public int TeamId = 0;
         public int RespawnSeconds = 1;
 
@@ -25,8 +26,60 @@ namespace Assets.Code
         public bool CanShoot = true;
         public float moveSpeed;
         public float turnSpeed;
+        private Random _random;
+        private int _botPreviousTurn;
+        
+        private bool _botDoNothing;
+        
+        private void HandleColision()
+        {
+            if (!IsBot)
+                return;
+            
+            if (_botDoNothing && _frameCount % 40 == 0)
+            {
+                _botDoNothing = false;
+            }
+            else if (_botDoNothing)
+            {
+                return;
+            }
+            var val = _random.Next(0, 500) / 100;
 
-        private string Name = "Qwerty";
+            if (val == _botPreviousTurn)
+                val = _random.Next(0, 500) / 100;
+            
+            
+            switch (val)
+            {
+                case 0:
+                    this.Turn(45);
+                    break;
+                case 1:
+                    this.Turn(-45);
+                    break;
+                case 2:
+                    this.Turn(45);
+                    break;
+                case 3:
+                    this.Turn(-45);
+                    break;
+                case 4 :
+                    this._botDoNothing = true;
+                    break;
+            }
+            _botPreviousTurn = val;
+        }
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            HandleColision();
+        }
+        public void OnCollisionEnter2D(Collision2D col)
+        {
+            HandleColision();
+        }
+
+        private string Name;
 
         /// <summary>
         ///  
@@ -34,7 +87,7 @@ namespace Assets.Code
         [HideInInspector] public SpriteRenderer SpriteRenderer;
 
         [HideInInspector] private GameController _gameController;
-        
+
         [HideInInspector] public Vector3 direction;
         [Header("References")] public Rigidbody2D rig;
         public GameObject Bullet; //The projectile prefab of which the tank can shoot.
@@ -42,10 +95,10 @@ namespace Assets.Code
 
         public void Update()
         {
-            if (!IsBot)
+          //  if (!IsBot)
                 TankTitle.transform.position = transform.position + new Vector3(-2, -1, 0);
-            else
-                TankTitle.transform.position = new Vector3(0, 1000, 0);
+          ////  else
+               // TankTitle.transform.position = new Vector3(0, 1000, 0);
 
             if (Health > 70)
                 TankTitle.color = Color.green;
@@ -61,10 +114,19 @@ namespace Assets.Code
             Health = 100;
         }
 
+        //Called when the tank dies, and needs to wait a certain time before respawning.
+        void BotLogic()
+        {
+            HandleColision();
+            print("Random!!");
+        }
+
         private void Awake()
         {
+            _random = new Random();
             _gameController = FindObjectOfType<GameController>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
+            Name = String.Format("Bot {0}", _random.Next(0, 500));
 
             if (HealthBar && !IsBot)
             {
@@ -120,7 +182,7 @@ namespace Assets.Code
             print("abcd3");
             Health = 100;
 
-            transform.localPosition = _gameController.GetRandomSpawnPoint(TeamId);;
+            transform.localPosition = _gameController.GetRandomSpawnPoint(TeamId);
         }
 
         /// <summary>
@@ -136,6 +198,7 @@ namespace Assets.Code
             direction = transform.rotation * Vector3.up;
         }
 
+
         public void Shoot()
         {
             var proj = Instantiate(Bullet, CannonFront.transform.position,
@@ -148,6 +211,32 @@ namespace Assets.Code
             projScript.Rig.velocity =
                 direction * BulletSpeed *
                 Time.deltaTime; //Makes the projectile move in the same direction that the tank is facing. 
+        }
+
+        private int _frameCount = 0;
+        private void FixedUpdate()
+        {
+            ++_frameCount;
+
+            var pos = transform.localPosition;
+           
+          //  if(IsBot && transform.localPosition.y > 5.8f)
+         //       HandleColision();
+            
+            if(IsBot && _frameCount % 50 == 0 && !(transform.localPosition.y > 5.8f))
+                Shoot();
+            
+            if (IsBot && _frameCount % 600 == 0 && !(transform.localPosition.y > 5.8f))
+            {
+                print("Random!");
+                HandleColision();
+                _frameCount = 0;
+                return;
+            }
+            if (IsBot)
+            {
+                Move(1);
+            }
         }
     }
 }

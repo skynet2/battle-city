@@ -54,9 +54,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210239534555132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.86, y: -0.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.677756, y: -4.587054, z: -0.14999962}
+  m_LocalScale: {x: 0.66336673, y: 0.7088632, z: 1}
   m_Children:
   - {fileID: 4783105347364644}
   m_Father: {fileID: 0}
@@ -118,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2404523, y: 1.7643757}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!82 &82821267218489770
 AudioSource:
@@ -295,14 +295,15 @@ MonoBehaviour:
   Damaged: {fileID: 0}
   Id: -1
   DamagePerShoot: 50
-  BulletSpeed: 250
+  BulletSpeed: 650
+  TeamId: 0
   RespawnSeconds: 1
   IsBot: 0
   HealthBar: {fileID: 1938508929566156, guid: 9c654dfbab7f797479ad64263b453149, type: 2}
   TankTitle: {fileID: 0}
   CanMove: 1
   CanShoot: 1
-  moveSpeed: 250
+  moveSpeed: 170
   turnSpeed: 100
   SpriteRenderer: {fileID: 212869870212785888}
   direction: {x: 0, y: 0, z: 0}

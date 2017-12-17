@@ -12,7 +12,7 @@ namespace Code.Objects.Common
         private SpriteRenderer _spriteRenderer;
         private readonly Color _damagedColor = Color.grey;
         protected bool ShouldChangeColor = true;
-
+        
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

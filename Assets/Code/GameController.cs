@@ -5,9 +5,11 @@ using System.IO;
 using Assets.Code;
 using Code.Objects.Common;
 using Code.Objects.Maps;
+using Code.PathFinding;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Grid = Code.PathFinding.Grid;
 using Random = System.Random;
 
 public class Player
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
     private readonly List<Player> _bots = new List<Player>();
     private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
 
+    private Random _random = new Random();
     // Use this for initialization
     public void Start()
     {
@@ -75,9 +78,12 @@ public class GameController : MonoBehaviour
 
         var xOffset = xLeftOffset;
         var yOffset = 8.8f;
+        var cells = new List<List<Cell>>();
 
         foreach (var row in mapData.MapRow)
         {
+            var cellList = new List<Cell>();
+
             foreach (var item in row.MapData)
             {
                 GameObject prefab = null;
@@ -110,6 +116,12 @@ public class GameController : MonoBehaviour
                     item.ReferenceGameObject.transform.localPosition = new Vector3(xOffset, yOffset);
                 }
 
+                cellList.Add(new Cell()
+                {
+                    IsOссupiedBy = item.ReferenceGameObject,
+                    Pos = new Vector3(xOffset, yOffset)
+                });
+
                 if (item.IsSpawn && item.TeamId == 0) // bot
                 {
                     _enemySpawnPoins.Add(new Vector3(xOffset, yOffset));
@@ -123,10 +135,37 @@ public class GameController : MonoBehaviour
                     yOffset -= 1.6f;
                 }
             }
+
+            cells.Add(cellList);
         }
 
         #endregion
-        
+
+        var tilesmap = new float[cells.Count, cells[0].Count];
+
+        for (var i = 0; i < cells.Count - 1; i++)
+        {
+            for (var y = 0; y < cells[0].Count - 1; y++)
+            {
+                try
+                {
+                    tilesmap[i, y] = cells[i][y].Weight;
+                }
+                catch (Exception e)
+                {
+                    var z = 0;
+                }
+            }
+        }
+
+        var grid = new Grid(cells.Count, cells[0].Count, tilesmap);
+        // create source and target points
+        var _from = new Point(1, 1);
+        var _to = new Point(5, 5);
+        List<Point> path = Pathfinding.FindPath(grid, _from, _to);
+
+
+        var x = 0;
         //var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
 
 //        _selfPlayer = new Player()
@@ -161,13 +200,12 @@ public class GameController : MonoBehaviour
 
     public Vector3 GetRandomSpawnPoint(int teamId)
     {
-        var random = new Random();
         var spawn = Vector3.back;
 
         if (teamId == 0)
-            spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)];
+            spawn = _enemySpawnPoins[_random.Next(0, _enemySpawnPoins.Count * 100) / 100];
         else if (teamId == 1)
-            spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)]; // TODO local spawns
+            spawn = _enemySpawnPoins[_random.Next(0, _enemySpawnPoins.Count * 100) / 100]; // TODO local spawns
 
         return spawn;
     }

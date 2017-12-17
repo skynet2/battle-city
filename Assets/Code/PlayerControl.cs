@@ -45,7 +45,7 @@ namespace Assets.Code
                 }
             }
 
-
+    
             if (Input.GetKeyDown(Shoot) && _tank.CanShoot)
             {
                 _tank.Shoot();
