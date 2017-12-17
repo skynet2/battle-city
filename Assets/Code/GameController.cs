@@ -42,23 +42,32 @@ public class GameController : MonoBehaviour
     {
         Camera = FindObjectOfType<Camera>();
         var xLeftOffset = -17.25f;
-        var halfHeight = Camera.orthographicSize;
+        var halfHeight = 9.6f;
         var xRightOffset = 15.75f;
-        print(Camera.aspect);
 
-        var offset = 0.75f;
+        const float xTopLeftBorder = -18.75f;
+        const float xTopRightBorder = 17.25f;
+        const float yTopBorder = 9.6f;
+        const float yBottonBorder = -8f;
 
-        for (float i = xLeftOffset; i < xRightOffset + 1; i += 1.125f)
+        for (var i = xTopLeftBorder; i < xTopRightBorder + 1; i += 1.125f)
         {
-            print("HalfHeigt - " + (-halfHeight + offset));
-            ////  Instantiate(BorderPrefab, new Vector3(i, (-halfHeight + offset - 1.7f)), Quaternion.identity);
-            //   Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
+            var obj = Instantiate(BorderPrefab, new Vector3(i, (yTopBorder)), Quaternion.identity,
+                LevelObjects.transform);
+            obj.transform.localPosition = new Vector3(i, (yTopBorder));
+
+            obj = Instantiate(BorderPrefab, new Vector3(i, yBottonBorder), Quaternion.identity, LevelObjects.transform);
+            obj.transform.localPosition = new Vector3(i, (yBottonBorder));
         }
-        for (float i = -halfHeight; i < halfHeight; i += 1.125f)
+        for (var i = yBottonBorder; i < yTopBorder; i += 1.125f)
         {
-            print("HalfWidth - " + (-xRightOffset + offset));
-            // Instantiate(BorderPrefab, new Vector3((-xRightOffset + offset), i), Quaternion.identity);
-            //   Instantiate(BorderPrefab, new Vector3(xRightOffset - offset + 1.7f, i), Quaternion.identity);
+            var obj = Instantiate(BorderPrefab, new Vector3(xTopLeftBorder, i), Quaternion.identity,
+                LevelObjects.transform);
+            obj.transform.localPosition = new Vector3(xTopLeftBorder, i);
+
+            obj = Instantiate(BorderPrefab, new Vector3(xTopRightBorder, i), Quaternion.identity,
+                LevelObjects.transform);
+            obj.transform.localPosition = new Vector3(xTopRightBorder, i);
         }
 
         var mapText = File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\map1.json");
@@ -131,12 +140,12 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             var pos = GetRandomSpawnPoint(0);
-            
+
             var botTankObject = Instantiate(TankPrefab,
                 pos, Quaternion.identity, LevelObjects.transform);
 
             botTankObject.transform.localPosition = pos;
-            
+
             var pl = new Player()
             {
                 GameObject = botTankObject,
@@ -153,15 +162,16 @@ public class GameController : MonoBehaviour
     public Vector3 GetRandomSpawnPoint(int teamId)
     {
         var random = new Random();
-        var spawn = Vector3.back;      
-       
+        var spawn = Vector3.back;
+
         if (teamId == 0)
             spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)];
-        else if(teamId == 1)
+        else if (teamId == 1)
             spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)]; // TODO local spawns
 
         return spawn;
     }
+
     // Update is called once per frame
     void Update()
     {
