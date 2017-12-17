@@ -41,30 +41,31 @@ public class GameController : MonoBehaviour
     public void Start()
     {
         Camera = FindObjectOfType<Camera>();
+        var xLeftOffset = -17.25f;
         var halfHeight = Camera.orthographicSize;
-        var halfWidth = Camera.orthographicSize * Camera.aspect;
+        var xRightOffset = 15.75f;
         print(Camera.aspect);
 
         var offset = 0.75f;
 
-        for (float i = -halfWidth; i < halfWidth + 1; i += 1.125f)
+        for (float i = xLeftOffset; i < xRightOffset + 1; i += 1.125f)
         {
             print("HalfHeigt - " + (-halfHeight + offset));
-            Instantiate(BorderPrefab, new Vector3(i, (-halfHeight + offset - 1.7f)), Quaternion.identity);
-            Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
+          ////  Instantiate(BorderPrefab, new Vector3(i, (-halfHeight + offset - 1.7f)), Quaternion.identity);
+         //   Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
         }
         for (float i = -halfHeight; i < halfHeight; i += 1.125f)
         {
-            print("HalfWidth - " + (-halfWidth + offset));
-            Instantiate(BorderPrefab, new Vector3((-halfWidth + offset), i), Quaternion.identity);
-            Instantiate(BorderPrefab, new Vector3(halfWidth - offset + 1.7f, i), Quaternion.identity);
+            print("HalfWidth - " + (-xRightOffset + offset));
+           // Instantiate(BorderPrefab, new Vector3((-xRightOffset + offset), i), Quaternion.identity);
+         //   Instantiate(BorderPrefab, new Vector3(xRightOffset - offset + 1.7f, i), Quaternion.identity);
         }
 
         var mapText = File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\map1.json");
         var mapData =
             JsonUtility.FromJson<Map>(mapText); // TODO 
 
-        var xOffset = -17.25f;
+        var xOffset = xLeftOffset;
         var yOffset = 8.8f;
 
         foreach (var row in mapData.MapRow)
@@ -93,14 +94,18 @@ public class GameController : MonoBehaviour
                         throw new ArgumentOutOfRangeException();
                 }
 
+      
                 if (prefab != null)
-                    item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity);
+                {
+                    item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity, LevelObjects.transform);
+                    item.ReferenceGameObject.transform.localPosition = new Vector3(xOffset, yOffset);
+                }  
 
                 xOffset += 1.5f;
 
-                if (xOffset > 18.75f)
+                if (xOffset > xRightOffset)
                 {
-                    xOffset = -17.25f;
+                    xOffset = xLeftOffset;
                     yOffset -= 1.6f;
                 }
             }
