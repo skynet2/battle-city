@@ -7,7 +7,7 @@ namespace Code.Objects.Blocks
 
         public Wood()
         {
-            Health = 200;
+            Health = 100;
         }
         
     }

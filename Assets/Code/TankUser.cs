@@ -112,30 +112,29 @@ namespace Assets.Code
         {
             direction = Vector3.up; //Sets the tank's direction up, as that is the default rotation of the sprite.
             Health = 100;
-        }
+            Name = String.Format("Bot {0}", _random.Next(0, 500));
 
-        //Called when the tank dies, and needs to wait a certain time before respawning.
-        void BotLogic()
-        {
-            HandleColision();
-            print("Random!!");
+            if (HealthBar)
+            {
+                TankTitle.text = Name;
+            }
         }
 
         private void Awake()
         {
-            _random = new Random();
             _gameController = FindObjectOfType<GameController>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
-            Name = String.Format("Bot {0}", _random.Next(0, 500));
+            _random = _gameController._random;
+            
+            var ob = Instantiate(HealthBar, CannonFront.transform.position,
+                Quaternion.identity);
+            TankTitle = ob.GetComponent<TextMesh>();
+            TankTitle.fontSize = 12;
+            var rend = ob.GetComponent<Renderer>();
 
-            if (HealthBar && !IsBot)
+            if (rend != null)
             {
-                var ob = Instantiate(HealthBar, CannonFront.transform.position,
-                    Quaternion.identity);
-
-                TankTitle = ob.GetComponent<TextMesh>();
-                TankTitle.text = Name;
-                TankTitle.fontSize = 12;
+                rend.sortingOrder = 99;
             }
         }
 
@@ -219,9 +218,26 @@ namespace Assets.Code
             ++_frameCount;
 
             var pos = transform.localPosition;
-           
-          //  if(IsBot && transform.localPosition.y > 5.8f)
-         //       HandleColision();
+
+            if (IsBot && pos.y > 7.8f && Math.Abs(direction.x - (-1)) < 0.01)
+            {
+                this.Turn(-45);
+            }
+
+            if (IsBot && pos.y > 7.8f && Math.Abs(direction.y - 1) < 0.01)
+            {
+                this.Turn(-90);
+            }
+
+            if (IsBot && pos.y > 7.8f && Math.Abs(direction.x - 1) < 0.01) // from left to right
+            {
+                this.Turn(45);
+            }
+            
+            if (IsBot && pos.y < 1.6 && pos.y > 0 && Math.Abs(direction.y - 1) < 0.01) // frpm down to up
+            {
+                this.Turn(90);
+            }
             
             if(IsBot && _frameCount % 50 == 0 && !(transform.localPosition.y > 5.8f))
                 Shoot();

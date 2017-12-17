@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     private readonly List<Player> _bots = new List<Player>();
     private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
 
-    private Random _random = new Random();
+    public Random _random = new Random();
     // Use this for initialization
     public void Start()
     {
