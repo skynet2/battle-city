@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4d8ea68-3a78-4907-a38f-7e3683573c42" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.battle-city/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.battle-city/.idea/contentModel.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.battle-city/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.battle-city/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Code/GameController.cs" afterPath="$PROJECT_DIR$/Assets/Code/GameController.cs" />
     </list>
@@ -17,26 +26,150 @@
       <file leaf-file-name="GameController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Code/GameController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="54" column="40" lean-forward="false" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state relative-caret-position="175">
+              <caret line="131" column="36" lean-forward="true" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
               <folding>
-                <marker date="1513508747500" expanded="true" signature="6:261" ph="..." />
-                <marker date="1513508747500" expanded="true" signature="282:372" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="417:5688" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="1058:5227" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="1459:1888" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="1953:2404" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="2698:4263" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="2754:4253" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="2846:3529" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="3567:3873" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="3935:4044" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="4123:4239" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="4273:4612" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
-                <marker date="1513508747500" expanded="true" signature="4684:5221" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="4970:5091" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="5279:5616" ph="{...}" />
-                <marker date="1513508747500" expanded="true" signature="5674:5686" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="6:261" ph="..." />
+                <marker date="1513509739558" expanded="true" signature="282:372" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="417:5638" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="1018:5177" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="1252:4240" ph="Build Map" />
+                <marker date="1513509739558" expanded="true" signature="1345:1774" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="1839:2290" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="2655:4220" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="2711:4210" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="2803:3486" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="3524:3830" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="3892:4001" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="4080:4196" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="4258:4597" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
+                <marker date="1513509739558" expanded="false" signature="4634:5171" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="4920:5041" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="5229:5566" ph="{...}" />
+                <marker date="1513509739558" expanded="true" signature="5624:5636" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grid.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+              <folding>
+                <marker date="1513509651140" expanded="true" signature="61:2855" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="85:2853" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="245:698" ph="/// Create a new grid with tile prices. ... " />
+                <marker date="1513509651140" expanded="true" signature="762:1118" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="927:1108" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="990:1094" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="1128:1494" ph="/// Create a new grid without tile prices, eg with just walkable / unwalkable tiles. ... " />
+                <marker date="1513509651140" expanded="true" signature="1560:1933" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="1725:1923" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="1788:1909" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="1943:2163" ph="/// Get all the neighbors of a given tile in the grid. ... " />
+                <marker date="1513509651140" expanded="true" signature="2214:2847" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="2314:2805" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="2374:2791" ph="{...}" />
+                <marker date="1513509651140" expanded="true" signature="2666:2773" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="82" column="17" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+              <folding>
+                <marker date="1513509651118" expanded="true" signature="26:2693" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="51:2691" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="150:225" ph="/// Init the point with zeros. ... " />
+                <marker date="1513509651118" expanded="true" signature="248:306" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="316:392" ph="/// Init the point with values. ... " />
+                <marker date="1513509651118" expanded="true" signature="429:499" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="509:593" ph="/// Init the point with a single value. ... " />
+                <marker date="1513509651118" expanded="true" signature="623:685" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="695:764" ph="/// Get point hash code. ... " />
+                <marker date="1513509651118" expanded="true" signature="806:852" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="862:926" ph="/// Compare points. ... " />
+                <marker date="1513509651118" expanded="true" signature="974:1267" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="1277:1341" ph="/// Compare points. ... " />
+                <marker date="1513509651118" expanded="true" signature="1377:1629" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="1467:1525" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="1639:1723" ph="/// Check if points are equal in value. ... " />
+                <marker date="1513509651118" expanded="true" signature="1780:2269" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="1909:1966" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="2008:2066" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="2108:2166" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="2279:2367" ph="/// Check if points are not equal in value. ... " />
+                <marker date="1513509651118" expanded="true" signature="2424:2474" ph="{...}" />
+                <marker date="1513509651118" expanded="true" signature="2484:2549" ph="/// Set point value. ... " />
+                <marker date="1513509651118" expanded="true" signature="2590:2685" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Object.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CE073096-ED89-4F7E-B8BF-05628286ED96/fb/4c8a834a/Object.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="56" column="23" lean-forward="false" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Pathfinding.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-918">
+              <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+              <folding>
+                <marker date="1513509651094" expanded="true" signature="6:52" ph="..." />
+                <marker date="1513509651094" expanded="true" signature="80:5055" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="111:5053" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="126:575" ph="/// Find a path between two points. ... " />
+                <marker date="1513509651094" expanded="true" signature="689:1148" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="938:1114" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="1000:1100" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="1158:1641" ph="/// Internal function that implements the path-finding algorithm. ... " />
+                <marker date="1513509651094" expanded="true" signature="1759:3723" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2069:3687" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2185:2482" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2370:2464" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2620:2725" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2801:3673" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="2897:2975" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="3296:3655" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="3733:4053" ph="/// Retrace path between two points. ... " />
+                <marker date="1513509651094" expanded="true" signature="4140:4456" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="4276:4393" ph="{...}" />
+                <marker date="1513509651094" expanded="true" signature="4466:4706" ph="/// Get distance between two nodes. ... " />
+                <marker date="1513509651094" expanded="true" signature="4769:5047" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding>
+                <marker date="1513509518665" expanded="true" signature="26:1478" ph="{...}" />
+                <marker date="1513509518665" expanded="true" signature="50:1476" ph="{...}" />
+                <marker date="1513509518665" expanded="true" signature="339:609" ph="/// Create the grid node. ... " />
+                <marker date="1513509518665" expanded="true" signature="664:803" ph="{...}" />
+                <marker date="1513509518665" expanded="true" signature="813:1057" ph="/// Create the grid node. ... " />
+                <marker date="1513509518665" expanded="true" signature="1114:1261" ph="{...}" />
+                <marker date="1513509518665" expanded="true" signature="1271:1343" ph="/// Get fCost of this node. ... " />
+                <marker date="1513509518665" expanded="true" signature="1368:1470" ph="{...}" />
+                <marker date="1513509518665" expanded="true" signature="1394:1460" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -108,91 +241,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapBlock.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/MapBlock.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-              <folding>
-                <marker date="1513506764819" expanded="true" signature="47:252" ph="{...}" />
-                <marker date="1513506764819" expanded="true" signature="101:250" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapBlockType.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/MapBlockType.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding>
-                <marker date="1513469173127" expanded="true" signature="27:164" ph="{...}" />
-                <marker date="1513469173127" expanded="true" signature="58:162" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bullet.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Bullet.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="65" lean-forward="false" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-              <folding>
-                <marker date="1513465049423" expanded="true" signature="6:158" ph="..." />
-                <marker date="1513465049423" expanded="true" signature="223:1582" ph="{...}" />
-                <marker date="1513465049423" expanded="true" signature="517:584" ph="{...}" />
-                <marker date="1513465049423" expanded="true" signature="641:1150" ph="{...}" />
-                <marker date="1513465049423" expanded="true" signature="752:831" ph="{...}" />
-                <marker date="1513465049423" expanded="true" signature="845:1104" ph="/* if (col.gameObject.tag.Equals(&quot;tank&quot;, StringComparison.InvariantCultureIgnoreCase)) ... */" />
-                <marker date="1513465049423" expanded="true" signature="1168:1217" ph="///  ... " />
-                <marker date="1513465049423" expanded="true" signature="1240:1576" ph="{...}" />
-                <marker date="1513465049423" expanded="true" signature="1263:1504" ph="/* Particle Effect ... */" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/Map.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-              <folding>
-                <marker date="1513469173144" expanded="true" signature="111:159" ph="{...}" />
-                <marker date="1513469173144" expanded="true" signature="214:265" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stone.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Code/Objects/Blocks/Stone.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <marker date="1513185705428" expanded="true" signature="100:181" ph="{...}" />
-                <marker date="1513185705428" expanded="true" signature="129:175" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CE073096-ED89-4F7E-B8BF-05628286ED96/fb/4c8a834a/Object.cs" root0="SKIP_INSPECTION" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ACA5A92C-578B-4550-940A-DA0E8D8A8D7A/52/1ec0b3fb/Object.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/TankUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/Map.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/PlayerControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/MapBlockType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Common/BaseDestroyable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Maps/MapBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Code/Objects/Blocks/Border.cs" root0="FORCE_HIGHLIGHTING" />
@@ -214,6 +280,12 @@
         <option value="$PROJECT_DIR$/Assets/Code/Objects/Common/BaseDestroyable.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/Objects/Maps/MapBlock.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/TankUser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/PathFinding/Class1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CE073096-ED89-4F7E-B8BF-05628286ED96/fb/4c8a834a/Object.cs" />
+        <option value="$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs" />
         <option value="$PROJECT_DIR$/Assets/Code/GameController.cs" />
       </list>
     </option>
@@ -225,8 +297,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1813" />
-    <option name="y" value="139" />
+    <option name="x" value="424" />
+    <option name="y" value="34" />
     <option name="width" value="1263" />
     <option name="height" value="1065" />
   </component>
@@ -288,26 +360,7 @@
               <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
               <item name="Code" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Objects" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Blocks" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="battle-city (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Code" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Objects" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Common" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="battle-city (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Assets" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Code" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Objects" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Maps" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="PathFinding" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
           </expand>
           <select />
@@ -347,12 +400,12 @@
       <updated>1513458245791</updated>
       <workItem from="1513458248952" duration="9216000" />
       <workItem from="1513469174174" duration="2053000" />
-      <workItem from="1513501471897" duration="6983000" />
+      <workItem from="1513501471897" duration="7915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18252000" />
+    <option name="totallyTimeSpent" value="19184000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,7 +417,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1813" y="139" width="1263" height="1065" extended-state="0" />
+    <frame x="424" y="34" width="1263" height="1065" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -397,21 +450,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Code/GameController.cs</url>
-          <line>139</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Code/GameController.cs">
-            <startOffsets>
-              <startOffset value="4657" />
-            </startOffsets>
-            <endOffsets>
-              <endOffset value="5221" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
@@ -422,23 +460,24 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513508747500" expanded="true" signature="6:261" ph="..." />
-            <marker date="1513508747500" expanded="true" signature="282:372" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="417:5688" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1058:5227" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1459:1888" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1953:2404" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2698:4263" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2754:4253" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2846:3529" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3567:3873" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3935:4044" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4123:4239" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4273:4612" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
-            <marker date="1513508747500" expanded="true" signature="4684:5221" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4970:5091" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5279:5616" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5674:5686" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="6:261" ph="..." />
+            <marker date="1513509739558" expanded="true" signature="282:372" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="417:5638" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1018:5177" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1252:4240" ph="Build Map" />
+            <marker date="1513509739558" expanded="true" signature="1345:1774" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1839:2290" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2655:4220" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2711:4210" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2803:3486" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3524:3830" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3892:4001" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4080:4196" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4258:4597" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
+            <marker date="1513509739558" expanded="false" signature="4634:5171" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4920:5041" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5229:5566" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5624:5636" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -688,23 +727,24 @@
         <state relative-caret-position="1245">
           <caret line="83" column="41" lean-forward="false" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
           <folding>
-            <marker date="1513508747500" expanded="true" signature="6:261" ph="..." />
-            <marker date="1513508747500" expanded="true" signature="282:372" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="417:5688" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1058:5227" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1459:1888" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1953:2404" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2698:4263" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2754:4253" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2846:3529" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3567:3873" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3935:4044" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4123:4239" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4273:4612" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
-            <marker date="1513508747500" expanded="true" signature="4684:5221" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4970:5091" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5279:5616" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5674:5686" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="6:261" ph="..." />
+            <marker date="1513509739558" expanded="true" signature="282:372" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="417:5638" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1018:5177" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1252:4240" ph="Build Map" />
+            <marker date="1513509739558" expanded="true" signature="1345:1774" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1839:2290" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2655:4220" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2711:4210" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2803:3486" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3524:3830" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3892:4001" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4080:4196" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4258:4597" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
+            <marker date="1513509739558" expanded="false" signature="4634:5171" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4920:5041" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5229:5566" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5624:5636" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -873,28 +913,150 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CE073096-ED89-4F7E-B8BF-05628286ED96/fb/4c8a834a/Object.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="56" column="23" lean-forward="false" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Point.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="82" column="17" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+          <folding>
+            <marker date="1513509651118" expanded="true" signature="26:2693" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="51:2691" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="150:225" ph="/// Init the point with zeros. ... " />
+            <marker date="1513509651118" expanded="true" signature="248:306" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="316:392" ph="/// Init the point with values. ... " />
+            <marker date="1513509651118" expanded="true" signature="429:499" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="509:593" ph="/// Init the point with a single value. ... " />
+            <marker date="1513509651118" expanded="true" signature="623:685" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="695:764" ph="/// Get point hash code. ... " />
+            <marker date="1513509651118" expanded="true" signature="806:852" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="862:926" ph="/// Compare points. ... " />
+            <marker date="1513509651118" expanded="true" signature="974:1267" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="1277:1341" ph="/// Compare points. ... " />
+            <marker date="1513509651118" expanded="true" signature="1377:1629" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="1467:1525" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="1639:1723" ph="/// Check if points are equal in value. ... " />
+            <marker date="1513509651118" expanded="true" signature="1780:2269" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="1909:1966" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="2008:2066" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="2108:2166" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="2279:2367" ph="/// Check if points are not equal in value. ... " />
+            <marker date="1513509651118" expanded="true" signature="2424:2474" ph="{...}" />
+            <marker date="1513509651118" expanded="true" signature="2484:2549" ph="/// Set point value. ... " />
+            <marker date="1513509651118" expanded="true" signature="2590:2685" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Pathfinding.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding>
+            <marker date="1513509651094" expanded="true" signature="6:52" ph="..." />
+            <marker date="1513509651094" expanded="true" signature="80:5055" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="111:5053" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="126:575" ph="/// Find a path between two points. ... " />
+            <marker date="1513509651094" expanded="true" signature="689:1148" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="938:1114" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="1000:1100" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="1158:1641" ph="/// Internal function that implements the path-finding algorithm. ... " />
+            <marker date="1513509651094" expanded="true" signature="1759:3723" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2069:3687" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2185:2482" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2370:2464" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2620:2725" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2801:3673" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="2897:2975" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="3296:3655" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="3733:4053" ph="/// Retrace path between two points. ... " />
+            <marker date="1513509651094" expanded="true" signature="4140:4456" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="4276:4393" ph="{...}" />
+            <marker date="1513509651094" expanded="true" signature="4466:4706" ph="/// Get distance between two nodes. ... " />
+            <marker date="1513509651094" expanded="true" signature="4769:5047" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Node.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <marker date="1513509518665" expanded="true" signature="26:1478" ph="{...}" />
+            <marker date="1513509518665" expanded="true" signature="50:1476" ph="{...}" />
+            <marker date="1513509518665" expanded="true" signature="339:609" ph="/// Create the grid node. ... " />
+            <marker date="1513509518665" expanded="true" signature="664:803" ph="{...}" />
+            <marker date="1513509518665" expanded="true" signature="813:1057" ph="/// Create the grid node. ... " />
+            <marker date="1513509518665" expanded="true" signature="1114:1261" ph="{...}" />
+            <marker date="1513509518665" expanded="true" signature="1271:1343" ph="/// Get fCost of this node. ... " />
+            <marker date="1513509518665" expanded="true" signature="1368:1470" ph="{...}" />
+            <marker date="1513509518665" expanded="true" signature="1394:1460" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Code/PathFinding/Grid.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+          <folding>
+            <marker date="1513509651140" expanded="true" signature="61:2855" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="85:2853" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="245:698" ph="/// Create a new grid with tile prices. ... " />
+            <marker date="1513509651140" expanded="true" signature="762:1118" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="927:1108" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="990:1094" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="1128:1494" ph="/// Create a new grid without tile prices, eg with just walkable / unwalkable tiles. ... " />
+            <marker date="1513509651140" expanded="true" signature="1560:1933" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="1725:1923" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="1788:1909" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="1943:2163" ph="/// Get all the neighbors of a given tile in the grid. ... " />
+            <marker date="1513509651140" expanded="true" signature="2214:2847" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="2314:2805" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="2374:2791" ph="{...}" />
+            <marker date="1513509651140" expanded="true" signature="2666:2773" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/GameController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="54" column="40" lean-forward="false" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="175">
+          <caret line="131" column="36" lean-forward="true" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
           <folding>
-            <marker date="1513508747500" expanded="true" signature="6:261" ph="..." />
-            <marker date="1513508747500" expanded="true" signature="282:372" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="417:5688" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1058:5227" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1459:1888" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="1953:2404" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2698:4263" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2754:4253" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="2846:3529" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3567:3873" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="3935:4044" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4123:4239" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4273:4612" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
-            <marker date="1513508747500" expanded="true" signature="4684:5221" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="4970:5091" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5279:5616" ph="{...}" />
-            <marker date="1513508747500" expanded="true" signature="5674:5686" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="6:261" ph="..." />
+            <marker date="1513509739558" expanded="true" signature="282:372" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="417:5638" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1018:5177" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1252:4240" ph="Build Map" />
+            <marker date="1513509739558" expanded="true" signature="1345:1774" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="1839:2290" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2655:4220" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2711:4210" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="2803:3486" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3524:3830" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="3892:4001" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4080:4196" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4258:4597" ph="/* var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity); ... */" />
+            <marker date="1513509739558" expanded="false" signature="4634:5171" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="4920:5041" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5229:5566" ph="{...}" />
+            <marker date="1513509739558" expanded="true" signature="5624:5636" ph="{...}" />
           </folding>
         </state>
       </provider>

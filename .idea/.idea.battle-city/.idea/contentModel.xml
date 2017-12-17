@@ -23,6 +23,12 @@
               <e p="MapBlockType.cs" t="Include" />
             </e>
           </e>
+          <e p="PathFinding" t="Include">
+            <e p="Grid.cs" t="Include" />
+            <e p="Node.cs" t="Include" />
+            <e p="Pathfinding.cs" t="Include" />
+            <e p="Point.cs" t="Include" />
+          </e>
           <e p="PlayerControl.cs" t="Include" />
           <e p="TankUser.cs" t="Include" />
         </e>

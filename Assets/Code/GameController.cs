@@ -30,9 +30,6 @@ public class GameController : MonoBehaviour
 
     public Camera Camera;
 
-    public bool canSelfDamage = true;
-
-
     private Player _selfPlayer;
     private readonly List<Player> _bots = new List<Player>();
     private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
@@ -41,14 +38,13 @@ public class GameController : MonoBehaviour
     public void Start()
     {
         Camera = FindObjectOfType<Camera>();
-        var xLeftOffset = -17.25f;
-        var halfHeight = 9.6f;
-        var xRightOffset = 15.75f;
 
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
         const float yTopBorder = 9.6f;
         const float yBottonBorder = -8f;
+
+        #region Build Map
 
         for (var i = xTopLeftBorder; i < xTopRightBorder + 1; i += 1.125f)
         {
@@ -73,6 +69,9 @@ public class GameController : MonoBehaviour
         var mapText = File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\map1.json");
         var mapData =
             JsonUtility.FromJson<Map>(mapText); // TODO 
+
+        var xLeftOffset = -17.25f;
+        var xRightOffset = 15.75f;
 
         var xOffset = xLeftOffset;
         var yOffset = 8.8f;
@@ -126,6 +125,8 @@ public class GameController : MonoBehaviour
             }
         }
 
+        #endregion
+        
         //var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
 
 //        _selfPlayer = new Player()
@@ -135,7 +136,6 @@ public class GameController : MonoBehaviour
 //        };
 //
 //        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
-        var random = new Random();
 
         for (int i = 0; i < 3; i++)
         {
