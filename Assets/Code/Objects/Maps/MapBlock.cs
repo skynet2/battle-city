@@ -7,5 +7,7 @@ namespace Code.Objects.Maps
     {
         public MapBlockType Type;
         public GameObject ReferenceGameObject;
+        public bool IsSpawn;
+        public int TeamId;
     }
 }

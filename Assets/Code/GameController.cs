@@ -8,6 +8,7 @@ using Code.Objects.Maps;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = System.Random;
 
 public class Player
 {
@@ -26,16 +27,15 @@ public class GameController : MonoBehaviour
     public GameObject WoodPrefab;
     public GameObject StonePrefab;
     public GameObject BasePrefab;
-    
-    public Camera Camera;
 
-    [Header("Spawn Points")] public List<GameObject> spawnPoints = new List<GameObject>();
+    public Camera Camera;
 
     public bool canSelfDamage = true;
 
 
     private Player _selfPlayer;
     private readonly List<Player> _bots = new List<Player>();
+    private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
 
     // Use this for initialization
     public void Start()
@@ -51,14 +51,14 @@ public class GameController : MonoBehaviour
         for (float i = xLeftOffset; i < xRightOffset + 1; i += 1.125f)
         {
             print("HalfHeigt - " + (-halfHeight + offset));
-          ////  Instantiate(BorderPrefab, new Vector3(i, (-halfHeight + offset - 1.7f)), Quaternion.identity);
-         //   Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
+            ////  Instantiate(BorderPrefab, new Vector3(i, (-halfHeight + offset - 1.7f)), Quaternion.identity);
+            //   Instantiate(BorderPrefab, new Vector3(i, halfHeight - offset), Quaternion.identity);
         }
         for (float i = -halfHeight; i < halfHeight; i += 1.125f)
         {
             print("HalfWidth - " + (-xRightOffset + offset));
-           // Instantiate(BorderPrefab, new Vector3((-xRightOffset + offset), i), Quaternion.identity);
-         //   Instantiate(BorderPrefab, new Vector3(xRightOffset - offset + 1.7f, i), Quaternion.identity);
+            // Instantiate(BorderPrefab, new Vector3((-xRightOffset + offset), i), Quaternion.identity);
+            //   Instantiate(BorderPrefab, new Vector3(xRightOffset - offset + 1.7f, i), Quaternion.identity);
         }
 
         var mapText = File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\map1.json");
@@ -94,12 +94,18 @@ public class GameController : MonoBehaviour
                         throw new ArgumentOutOfRangeException();
                 }
 
-      
+
                 if (prefab != null)
                 {
-                    item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity, LevelObjects.transform);
+                    item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity,
+                        LevelObjects.transform);
                     item.ReferenceGameObject.transform.localPosition = new Vector3(xOffset, yOffset);
-                }  
+                }
+
+                if (item.IsSpawn && item.TeamId == 0) // bot
+                {
+                    _enemySpawnPoins.Add(new Vector3(xOffset, yOffset));
+                }
 
                 xOffset += 1.5f;
 
@@ -111,20 +117,26 @@ public class GameController : MonoBehaviour
             }
         }
 
-        var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
+        //var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
 
-        _selfPlayer = new Player()
-        {
-            GameObject = selfTankObject,
-            Tank = selfTankObject.GetComponent<TankUser>()
-        };
-
-        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
+//        _selfPlayer = new Player()
+//        {
+//            GameObject = selfTankObject,
+//            Tank = selfTankObject.GetComponent<TankUser>()
+//        };
+//
+//        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
+        var random = new Random();
 
         for (int i = 0; i < 3; i++)
         {
-            var botTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
+            var pos = GetRandomSpawnPoint(0);
+            
+            var botTankObject = Instantiate(TankPrefab,
+                pos, Quaternion.identity, LevelObjects.transform);
 
+            botTankObject.transform.localPosition = pos;
+            
             var pl = new Player()
             {
                 GameObject = botTankObject,
@@ -138,6 +150,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public Vector3 GetRandomSpawnPoint(int teamId)
+    {
+        var random = new Random();
+        var spawn = Vector3.back;      
+       
+        if (teamId == 0)
+            spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)];
+        else if(teamId == 1)
+            spawn = _enemySpawnPoins[random.Next(0, _enemySpawnPoins.Count)]; // TODO local spawns
+
+        return spawn;
+    }
     // Update is called once per frame
     void Update()
     {

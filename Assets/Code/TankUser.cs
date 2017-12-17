@@ -14,6 +14,7 @@ namespace Assets.Code
         public int Id = -1;
         public int DamagePerShoot = 50;
         public float BulletSpeed = 33;
+        public int TeamId = 0;
         public int RespawnSeconds = 1;
 
         [HideInInspector] public bool IsBot = false;
@@ -119,7 +120,7 @@ namespace Assets.Code
             print("abcd3");
             Health = 100;
 
-            transform.position = _gameController.spawnPoints[0].transform.position;
+            transform.localPosition = _gameController.GetRandomSpawnPoint(TeamId);;
         }
 
         /// <summary>
