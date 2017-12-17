@@ -64,8 +64,8 @@ public class GameController : MonoBehaviour
         var mapData =
             JsonUtility.FromJson<Map>(mapText); // TODO 
 
-        var xOffset = -15.75f;
-        var yOffset = 10.4f;
+        var xOffset = -17.25f;
+        var yOffset = 8.8f;
 
         foreach (var row in mapData.MapRow)
         {
@@ -93,15 +93,14 @@ public class GameController : MonoBehaviour
                         throw new ArgumentOutOfRangeException();
                 }
 
-
                 if (prefab != null)
                     item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity);
 
                 xOffset += 1.5f;
 
-                if (xOffset > 17.25f)
+                if (xOffset > 18.75f)
                 {
-                    xOffset = -15.75f;
+                    xOffset = -17.25f;
                     yOffset -= 1.6f;
                 }
             }

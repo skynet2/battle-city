@@ -442,6 +442,9 @@ MonoBehaviour:
   BorderPrefab: {fileID: 1252680294247032, guid: 489523ce03d01294f8a38e779445f745,
     type: 2}
   LevelObjects: {fileID: 1611571153}
+  WoodPrefab: {fileID: 0}
+  StonePrefab: {fileID: 0}
+  BasePrefab: {fileID: 0}
   Camera: {fileID: 1495172734}
   spawnPoints:
   - {fileID: 2094950586}
@@ -458,7 +461,7 @@ Transform:
   m_Children:
   - {fileID: 55116823}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &55116822
 GameObject:
@@ -1332,7 +1335,7 @@ Transform:
   m_Children:
   - {fileID: 2094950587}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &321407898
 Prefab:
@@ -3381,7 +3384,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4382775844768452, guid: 5c56cbaedee446847960ed75b359f272, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c56cbaedee446847960ed75b359f272, type: 2}
@@ -5472,11 +5475,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.75
+      value: -17.25
       objectReference: {fileID: 0}
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5583,7 +5586,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.05
+  orthographic size: 12.466245
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5605,11 +5608,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495172731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: -0.8, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.3, y: -2.7045827, z: -9.85}
+  m_LocalScale: {x: 1.3661363, y: 1.1919785, z: 1}
   m_Children: []
-  m_Father: {fileID: 1611571154}
-  m_RootOrder: 71
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508084919 stripped
 GameObject:
@@ -5794,7 +5797,6 @@ GameObject:
   - component: {fileID: 1611571154}
   - component: {fileID: 1611571155}
   - component: {fileID: 1611571156}
-  - component: {fileID: 1611571157}
   m_Layer: 0
   m_Name: LevelObjects
   m_TagString: Untagged
@@ -5809,8 +5811,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611571153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: 0.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.503, y: -2.74, z: 0.15}
+  m_LocalScale: {x: 1.4813855, y: 1.2814026, z: 1}
   m_Children:
   - {fileID: 324927757}
   - {fileID: 331971456}
@@ -5883,9 +5885,8 @@ Transform:
   - {fileID: 691714114}
   - {fileID: 894847314}
   - {fileID: 1123589826}
-  - {fileID: 1495172735}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1611571155
 Grid:
@@ -5893,7 +5894,7 @@ Grid:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611571153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CellSize: {x: 1.5, y: 1.6, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
@@ -5942,43 +5943,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1839735485 &1611571157
-Tilemap:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1611571153}
-  m_Enabled: 1
-  m_Tiles: {}
-  m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
-  m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
-  m_TileAnchor: {x: 1.5, y: 1.6, z: 1}
-  m_TileOrientation: 0
-  m_TileOrientationMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  m_TileRefreshArray: []
 --- !u!1 &1644903261 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1252680294247032, guid: 489523ce03d01294f8a38e779445f745,
@@ -7211,11 +7175,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: 15.75
       objectReference: {fileID: 0}
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.799999
+      value: 8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4977516513675850, guid: 489523ce03d01294f8a38e779445f745, type: 2}
       propertyPath: m_LocalPosition.z
