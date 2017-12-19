@@ -11,6 +11,7 @@
           <e p="Objects" t="Include">
             <e p="Blocks" t="Include">
               <e p="Border.cs" t="Include" />
+              <e p="Castle.cs" t="Include" />
               <e p="Stone.cs" t="Include" />
               <e p="Wood.cs" t="Include" />
             </e>

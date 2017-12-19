@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Code;
+using UnityEngine;
 
 namespace Code.Objects.Common
 {
@@ -12,14 +13,18 @@ namespace Code.Objects.Common
         private SpriteRenderer _spriteRenderer;
         private readonly Color _damagedColor = Color.grey;
         protected bool ShouldChangeColor = true;
-        
+        public int TeamId;
+
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public virtual bool Damage(int amount, int tankId, bool isFriendly)
+        public virtual bool Damage(int amount, TankUser tank)
         {
+            if (tank.TeamId == TeamId)
+                return false;
+            
             if (_spriteRenderer != null)
             {
                 if (Damaged != null)

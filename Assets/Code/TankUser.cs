@@ -15,7 +15,6 @@ namespace Assets.Code
         public int Id = -1;
         public int DamagePerShoot = 50;
         public float BulletSpeed = 650;
-        public int TeamId = 0;
         public int RespawnSeconds = 1;
 
         [HideInInspector] public bool IsBot = false;
@@ -124,7 +123,7 @@ namespace Assets.Code
         {
             _gameController = FindObjectOfType<GameController>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
-            _random = _gameController._random;
+            _random = _gameController.Random;
             
             var ob = Instantiate(HealthBar, CannonFront.transform.position,
                 Quaternion.identity);
@@ -146,7 +145,7 @@ namespace Assets.Code
             rig.velocity = direction * y * moveSpeed * Time.deltaTime;
         }
 
-        public override bool Damage(int amount, int tankId, bool isFriendly)
+        public override bool Damage(int amount, TankUser tank)
         {
             Health = Health - amount;
             var isDestroyed = Health <= 0;
@@ -158,6 +157,9 @@ namespace Assets.Code
                 transform.position = new Vector3(0, 1000, 0); // Hide tank
                 TankTitle.transform.position = new Vector3(0, 1000, 0); // Hide text
 
+                if(IsBot)
+                    _gameController.KillsCounterText.text = (int.Parse(_gameController.KillsCounterText.text) + 1).ToString();
+                
                 StartCoroutine(RespawnTimer());
             }
 
@@ -204,7 +206,7 @@ namespace Assets.Code
                 Quaternion.identity); //Spawns the projectile at the muzzle.
 
             var projScript = proj.GetComponent<Bullet>(); //Gets the Bullet component of the projectile object.
-            projScript.TankId = Id; //Sets the projectile's tankId, so that it knows which tank it was shot by.
+            projScript.Tank = this; //Sets the projectile's tankId, so that it knows which tank it was shot by.
             projScript.Damage = DamagePerShoot; //Sets the projectile's damage.
 
             projScript.Rig.velocity =

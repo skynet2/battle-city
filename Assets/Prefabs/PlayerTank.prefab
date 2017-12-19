@@ -293,10 +293,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NotDamaged: {fileID: 0}
   Damaged: {fileID: 0}
+  TeamId: 0
   Id: -1
   DamagePerShoot: 50
   BulletSpeed: 650
-  TeamId: 0
   RespawnSeconds: 1
   IsBot: 0
   HealthBar: {fileID: 1938508929566156, guid: 9c654dfbab7f797479ad64263b453149, type: 2}

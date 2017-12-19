@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Assets.Code;
 using Code.Objects.Common;
@@ -29,19 +30,32 @@ public class GameController : MonoBehaviour
     public GameObject WoodPrefab;
     public GameObject StonePrefab;
     public GameObject BasePrefab;
-
+    public GameObject TimeGameObject;
+    public GameObject KillsCounter;
+    
     public Camera Camera;
 
     private Player _selfPlayer;
+    public bool IsGameRunning = true;
     private readonly List<Player> _bots = new List<Player>();
     private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
+    private readonly List<Vector3> _selfSpawnPoints = new List<Vector3>();
 
-    public Random _random = new Random();
+    public Random Random = new Random();
+    public TextMesh KillsCounterText;
+    private Stopwatch _stopwatch = new Stopwatch();
+    
+    private TextMesh _timeMesh;
     // Use this for initialization
     public void Start()
     {
         Camera = FindObjectOfType<Camera>();
 
+        TimeGameObject.GetComponent<Renderer>().sortingOrder = 999;
+        KillsCounter.GetComponent<Renderer>().sortingOrder = 999;
+        _timeMesh = TimeGameObject.GetComponent<TextMesh>();
+        KillsCounterText = KillsCounter.GetComponent<TextMesh>();
+        
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
         const float yTopBorder = 9.6f;
@@ -108,12 +122,17 @@ public class GameController : MonoBehaviour
                         throw new ArgumentOutOfRangeException();
                 }
 
-
+            
                 if (prefab != null)
                 {
                     item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity,
                         LevelObjects.transform);
                     item.ReferenceGameObject.transform.localPosition = new Vector3(xOffset, yOffset);
+
+                    var refClass = item.ReferenceGameObject.GetComponent<BaseDestroyable>();
+
+                    if (refClass != null)
+                        refClass.TeamId = item.TeamId;
                 }
 
                 cellList.Add(new Cell()
@@ -122,11 +141,14 @@ public class GameController : MonoBehaviour
                     Pos = new Vector3(xOffset, yOffset)
                 });
 
-                if (item.IsSpawn && item.TeamId == 0) // bot
+                if (item.IsSpawn && item.TeamId == 1) // bot
                 {
                     _enemySpawnPoins.Add(new Vector3(xOffset, yOffset));
                 }
-
+                if (item.IsSpawn && item.TeamId == 2) // bot
+                {
+                    _selfSpawnPoints.Add(new Vector3(xOffset, yOffset));
+                }
                 xOffset += 1.5f;
 
                 if (xOffset > xRightOffset)
@@ -165,20 +187,28 @@ public class GameController : MonoBehaviour
         List<Point> path = Pathfinding.FindPath(grid, _from, _to);
 
 
-        var x = 0;
-        //var selfTankObject = Instantiate(TankPrefab, spawnPoints[0].transform.position, Quaternion.identity);
-
-//        _selfPlayer = new Player()
-//        {
-//            GameObject = selfTankObject,
-//            Tank = selfTankObject.GetComponent<TankUser>()
-//        };
-//
-//        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
-
-        for (int i = 0; i < 3; i++)
+        const int myTeam = 2;
+            
+        var myTeamSpawn = GetRandomSpawnPoint(myTeam);
+        
+        var selfTankObject = Instantiate(TankPrefab,
+            myTeamSpawn, Quaternion.identity, LevelObjects.transform);
+        
+        selfTankObject.transform.localPosition = myTeamSpawn;
+        
+        _selfPlayer = new Player()
         {
-            var pos = GetRandomSpawnPoint(0);
+            GameObject = selfTankObject,
+            Tank = selfTankObject.GetComponent<TankUser>()
+        };
+        _selfPlayer.Tank.TeamId = myTeam;
+        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
+
+        for (var i = 0; i < 3; i++)
+        {
+            const int teamId = 1;
+            
+            var pos = GetRandomSpawnPoint(teamId);
 
             var botTankObject = Instantiate(TankPrefab,
                 pos, Quaternion.identity, LevelObjects.transform);
@@ -193,19 +223,22 @@ public class GameController : MonoBehaviour
 
             pl.Tank.SpriteRenderer.color = _enemyColor;
             pl.Tank.IsBot = true;
-
+            pl.Tank.TeamId = teamId;
+            
             _bots.Add(pl);
         }
+        
+        _stopwatch.Start();
     }
 
     public Vector3 GetRandomSpawnPoint(int teamId)
     {
         var spawn = Vector3.back;
 
-        if (teamId == 0)
-            spawn = _enemySpawnPoins[_random.Next(0, _enemySpawnPoins.Count * 100) / 100];
-        else if (teamId == 1)
-            spawn = _enemySpawnPoins[_random.Next(0, _enemySpawnPoins.Count * 100) / 100]; // TODO local spawns
+        if (teamId == 1)
+            spawn = _enemySpawnPoins[Random.Next(0, _enemySpawnPoins.Count * 100) / 100];
+        else if (teamId == 2)
+            spawn = _selfSpawnPoints[Random.Next(0, _selfSpawnPoints.Count * 100) / 100]; // TODO local spawns
 
         return spawn;
     }
@@ -213,5 +246,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_timeMesh != null)
+            _timeMesh.text = string.Format("{0}:{1}", _stopwatch.Elapsed.Minutes, _stopwatch.Elapsed.Seconds);
     }
 }

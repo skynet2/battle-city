@@ -12,12 +12,14 @@ namespace Assets.Code
     {
         //[Header("References")] public GameObject HitEffect;
         
-        [HideInInspector] public int TankId; //The tank which shot this projectile.
+        [HideInInspector] public TankUser Tank; //The tank which shot this projectile.
         [HideInInspector] public int Damage;
         [HideInInspector] public Rigidbody2D Rig;
-        
+        [HideInInspector] private GameController _gameController;
+
         private void Awake()
         {
+            _gameController = FindObjectOfType<GameController>();
             Rig = GetComponent<Rigidbody2D>();
         }
 
@@ -27,7 +29,7 @@ namespace Assets.Code
 
             if (obj != null) 
             {
-                obj.Damage(Damage, TankId, false);
+                obj.Damage(Damage, Tank);
             }
 
            
