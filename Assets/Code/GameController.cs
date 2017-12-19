@@ -10,6 +10,7 @@ using Code.PathFinding;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using Grid = Code.PathFinding.Grid;
 using Random = System.Random;
 
@@ -32,6 +33,8 @@ public class GameController : MonoBehaviour
     public GameObject BasePrefab;
     public GameObject TimeGameObject;
     public GameObject KillsCounter;
+    public GameObject WinCanvas;
+    public GameObject WinTextObject;
     
     public Camera Camera;
 
@@ -43,9 +46,11 @@ public class GameController : MonoBehaviour
 
     public Random Random = new Random();
     public TextMesh KillsCounterText;
+    public Text WinText;
     private Stopwatch _stopwatch = new Stopwatch();
-    
+
     private TextMesh _timeMesh;
+
     // Use this for initialization
     public void Start()
     {
@@ -55,7 +60,9 @@ public class GameController : MonoBehaviour
         KillsCounter.GetComponent<Renderer>().sortingOrder = 999;
         _timeMesh = TimeGameObject.GetComponent<TextMesh>();
         KillsCounterText = KillsCounter.GetComponent<TextMesh>();
-        
+        WinText = WinTextObject.GetComponent<Text>();
+        WinCanvas.GetComponent<Canvas>().sortingOrder = -2;
+      
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
         const float yTopBorder = 9.6f;
@@ -122,7 +129,7 @@ public class GameController : MonoBehaviour
                         throw new ArgumentOutOfRangeException();
                 }
 
-            
+
                 if (prefab != null)
                 {
                     item.ReferenceGameObject = Instantiate(prefab, new Vector3(xOffset, yOffset), Quaternion.identity,
@@ -188,14 +195,14 @@ public class GameController : MonoBehaviour
 
 
         const int myTeam = 2;
-            
+
         var myTeamSpawn = GetRandomSpawnPoint(myTeam);
-        
+
         var selfTankObject = Instantiate(TankPrefab,
             myTeamSpawn, Quaternion.identity, LevelObjects.transform);
-        
+
         selfTankObject.transform.localPosition = myTeamSpawn;
-        
+
         _selfPlayer = new Player()
         {
             GameObject = selfTankObject,
@@ -207,7 +214,7 @@ public class GameController : MonoBehaviour
         for (var i = 0; i < 3; i++)
         {
             const int teamId = 1;
-            
+
             var pos = GetRandomSpawnPoint(teamId);
 
             var botTankObject = Instantiate(TankPrefab,
@@ -224,10 +231,10 @@ public class GameController : MonoBehaviour
             pl.Tank.SpriteRenderer.color = _enemyColor;
             pl.Tank.IsBot = true;
             pl.Tank.TeamId = teamId;
-            
+
             _bots.Add(pl);
         }
-        
+
         _stopwatch.Start();
     }
 
@@ -246,7 +253,13 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_timeMesh != null)
-            _timeMesh.text = string.Format("{0}:{1}", _stopwatch.Elapsed.Minutes, _stopwatch.Elapsed.Seconds);
+        if (!IsGameRunning)
+        {            
+            WinCanvas.GetComponent<Canvas>().sortingOrder = 9999;
+  
+        }
+        
+        if (_timeMesh != null && IsGameRunning)
+            _timeMesh.text = string.Format("{0:00}:{1:00}", _stopwatch.Elapsed.Minutes, _stopwatch.Elapsed.Seconds);
     }
 }

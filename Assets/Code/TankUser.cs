@@ -27,14 +27,14 @@ namespace Assets.Code
         public float turnSpeed;
         private Random _random;
         private int _botPreviousTurn;
-        
+
         private bool _botDoNothing;
-        
+
         private void HandleColision()
         {
             if (!IsBot)
                 return;
-            
+
             if (_botDoNothing && _frameCount % 40 == 0)
             {
                 _botDoNothing = false;
@@ -47,8 +47,8 @@ namespace Assets.Code
 
             if (val == _botPreviousTurn)
                 val = _random.Next(0, 500) / 100;
-            
-            
+
+
             switch (val)
             {
                 case 0:
@@ -63,16 +63,18 @@ namespace Assets.Code
                 case 3:
                     this.Turn(-45);
                     break;
-                case 4 :
+                case 4:
                     this._botDoNothing = true;
                     break;
             }
             _botPreviousTurn = val;
         }
+
         private void OnCollisionStay2D(Collision2D other)
         {
             HandleColision();
         }
+
         public void OnCollisionEnter2D(Collision2D col)
         {
             HandleColision();
@@ -94,10 +96,7 @@ namespace Assets.Code
 
         public void Update()
         {
-          //  if (!IsBot)
-                TankTitle.transform.position = transform.position + new Vector3(-2, -1, 0);
-          ////  else
-               // TankTitle.transform.position = new Vector3(0, 1000, 0);
+            TankTitle.transform.position = transform.position + new Vector3(-2, -1, 0);
 
             if (Health > 70)
                 TankTitle.color = Color.green;
@@ -124,7 +123,7 @@ namespace Assets.Code
             _gameController = FindObjectOfType<GameController>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
             _random = _gameController.Random;
-            
+
             var ob = Instantiate(HealthBar, CannonFront.transform.position,
                 Quaternion.identity);
             TankTitle = ob.GetComponent<TextMesh>();
@@ -139,8 +138,8 @@ namespace Assets.Code
 
         public void Move(float y)
         {
-            //if (game.Finish)
-            //    return;
+            if (!_gameController.IsGameRunning)
+                return;
 
             rig.velocity = direction * y * moveSpeed * Time.deltaTime;
         }
@@ -157,9 +156,10 @@ namespace Assets.Code
                 transform.position = new Vector3(0, 1000, 0); // Hide tank
                 TankTitle.transform.position = new Vector3(0, 1000, 0); // Hide text
 
-                if(IsBot)
-                    _gameController.KillsCounterText.text = (int.Parse(_gameController.KillsCounterText.text) + 1).ToString();
-                
+                if (IsBot)
+                    _gameController.KillsCounterText.text =
+                        (int.Parse(_gameController.KillsCounterText.text) + 1).ToString();
+
                 StartCoroutine(RespawnTimer());
             }
 
@@ -183,7 +183,10 @@ namespace Assets.Code
             print("abcd3");
             Health = 100;
 
-            transform.localPosition = _gameController.GetRandomSpawnPoint(TeamId);
+            if (_gameController.IsGameRunning)
+            {
+                transform.localPosition = _gameController.GetRandomSpawnPoint(TeamId);
+            }
         }
 
         /// <summary>
@@ -192,9 +195,6 @@ namespace Assets.Code
         /// <param name="x"></param>
         public void Turn(float x)
         {
-            //if (game.Finish)
-            //    return;
-
             transform.Rotate(-Vector3.forward * x * turnSpeed * Time.deltaTime);
             direction = transform.rotation * Vector3.up;
         }
@@ -215,8 +215,16 @@ namespace Assets.Code
         }
 
         private int _frameCount = 0;
+
         private void FixedUpdate()
         {
+            if (!_gameController.IsGameRunning)
+            {
+                transform.position = new Vector3(0, 1000, 0); // Hide tank
+                TankTitle.transform.position = new Vector3(0, 1000, 0); // Hide text
+                return;
+            }
+
             ++_frameCount;
 
             var pos = transform.localPosition;
@@ -235,15 +243,15 @@ namespace Assets.Code
             {
                 this.Turn(45);
             }
-            
+
             if (IsBot && pos.y < 1.6 && pos.y > 0 && Math.Abs(direction.y - 1) < 0.01) // frpm down to up
             {
                 this.Turn(90);
             }
-            
-            if(IsBot && _frameCount % 50 == 0 && !(transform.localPosition.y > 5.8f))
+
+            if (IsBot && _frameCount % 50 == 0 && !(transform.localPosition.y > 5.8f))
                 Shoot();
-            
+
             if (IsBot && _frameCount % 600 == 0 && !(transform.localPosition.y > 5.8f))
             {
                 print("Random!");

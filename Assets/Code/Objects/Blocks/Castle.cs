@@ -1,5 +1,7 @@
-﻿using Assets.Code;
+﻿using System;
+using Assets.Code;
 using Code.Objects.Common;
+using UnityEngine;
 
 namespace Code.Objects.Blocks
 {
@@ -21,6 +23,13 @@ namespace Code.Objects.Blocks
             
             Destroy(this.gameObject);
 
+            if (tank.TeamId == 1)
+                controller.WinText.color = Color.red;
+            else 
+                controller.WinText.color = Color.green;
+            
+            controller.WinText.text = string.Format("Team {0} Win!", tank.TeamId);
+      
             return true;
         }
     }
