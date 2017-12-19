@@ -29,7 +29,7 @@ namespace Assets.Code
 
             if (obj != null) 
             {
-                obj.Damage(Damage, Tank);
+                var result = obj.Damage(Damage, Tank);                            
             }
 
            

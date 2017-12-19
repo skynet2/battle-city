@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public GameObject KillsCounter;
     public GameObject WinCanvas;
     public GameObject WinTextObject;
+    public GameObject AchivementTextGameObject;
     
     public Camera Camera;
 
@@ -48,7 +49,8 @@ public class GameController : MonoBehaviour
     public TextMesh KillsCounterText;
     public Text WinText;
     private Stopwatch _stopwatch = new Stopwatch();
-
+    public Text AchivementText;
+    
     private TextMesh _timeMesh;
 
     // Use this for initialization
@@ -62,7 +64,9 @@ public class GameController : MonoBehaviour
         KillsCounterText = KillsCounter.GetComponent<TextMesh>();
         WinText = WinTextObject.GetComponent<Text>();
         WinCanvas.GetComponent<Canvas>().sortingOrder = -2;
-      
+        AchivementText = AchivementTextGameObject.GetComponent<Text>();
+        AchivementText.text = "";
+        
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
         const float yTopBorder = 9.6f;
@@ -210,7 +214,8 @@ public class GameController : MonoBehaviour
         };
         _selfPlayer.Tank.TeamId = myTeam;
         _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
-
+        _selfPlayer.Tank.User = new User();
+        
         for (var i = 0; i < 3; i++)
         {
             const int teamId = 1;

@@ -27,6 +27,9 @@ namespace Code.Objects.Blocks
                 controller.WinText.color = Color.red;
             else 
                 controller.WinText.color = Color.green;
+
+            if (tank.User != null)
+                tank.User.DestroedBases++;
             
             controller.WinText.text = string.Format("Team {0} Win!", tank.TeamId);
       

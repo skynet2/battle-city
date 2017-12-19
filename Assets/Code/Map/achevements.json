@@ -1,0 +1,28 @@
+{
+  "Items": [
+    {
+      "Id": 1,
+      "ConditionType": 0,
+      "Title": "Tank wrecker",
+      "Value": 1
+    },
+    {
+      "Id": 2,
+      "ConditionType": 3,
+      "Title": "Hello darkness",
+      "Value": 5
+    },
+    {
+      "Id": 3,
+      "ConditionType": 2,
+      "Title": "Addicted",
+      "Value": 1
+    },
+    {
+      "Id": 4,
+      "ConditionType": 1,
+      "Title": "Castle lord",
+      "Value": 1
+    }
+  ]
+}

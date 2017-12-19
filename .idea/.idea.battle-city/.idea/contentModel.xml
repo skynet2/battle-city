@@ -6,9 +6,13 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
+          <e p="AchievementService.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
           <e p="Objects" t="Include">
+            <e p="Achievements" t="Include">
+              <e p="Achievement.cs" t="Include" />
+            </e>
             <e p="Blocks" t="Include">
               <e p="Border.cs" t="Include" />
               <e p="Castle.cs" t="Include" />
@@ -18,6 +22,7 @@
             <e p="Common" t="Include">
               <e p="BaseDestroyable.cs" t="Include" />
               <e p="Cell.cs" t="Include" />
+              <e p="User.cs" t="Include" />
             </e>
             <e p="Maps" t="Include">
               <e p="Map.cs" t="Include" />

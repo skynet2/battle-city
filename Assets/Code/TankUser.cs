@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Code.Objects.Achievements;
 using Code.Objects.Common;
 using UnityEngine;
 using UnityEngine.UI;
@@ -88,11 +89,13 @@ namespace Assets.Code
         [HideInInspector] public SpriteRenderer SpriteRenderer;
 
         [HideInInspector] private GameController _gameController;
-
+        [HideInInspector] public User User;
         [HideInInspector] public Vector3 direction;
         [Header("References")] public Rigidbody2D rig;
+
         public GameObject Bullet; //The projectile prefab of which the tank can shoot.
         public Transform CannonFront;
+        private AchievementService _achievementService = new AchievementService();
 
         public void Update()
         {
@@ -111,7 +114,10 @@ namespace Assets.Code
             direction = Vector3.up; //Sets the tank's direction up, as that is the default rotation of the sprite.
             Health = 100;
             Name = String.Format("Bot {0}", _random.Next(0, 500));
-
+            
+            if(!IsBot)
+                StartCoroutine(ApplyAchievements());
+            
             if (HealthBar)
             {
                 TankTitle.text = Name;
@@ -146,6 +152,9 @@ namespace Assets.Code
 
         public override bool Damage(int amount, TankUser tank)
         {
+            if (TeamId == tank.TeamId)
+                return false;
+
             Health = Health - amount;
             var isDestroyed = Health <= 0;
 
@@ -155,6 +164,12 @@ namespace Assets.Code
                 CanShoot = false;
                 transform.position = new Vector3(0, 1000, 0); // Hide tank
                 TankTitle.transform.position = new Vector3(0, 1000, 0); // Hide text
+
+                if (User != null)
+                    User.Deaths++;
+
+                if (tank.User != null)
+                    tank.User.KilledEnemies++;
 
                 if (IsBot)
                     _gameController.KillsCounterText.text =
@@ -167,12 +182,10 @@ namespace Assets.Code
         }
 
         //Called when the tank dies, and needs to wait a certain time before respawning.
-        IEnumerator RespawnTimer()
+        private IEnumerator RespawnTimer()
         {
-            print("abcd");
-            yield return new WaitForSecondsRealtime(5); //Waits how ever long was set in the Game.cs script.
-            print("abcd2");
-            Respawn(); //Respawns the tank.
+            yield return new WaitForSecondsRealtime(5); 
+            Respawn(); 
         }
 
         //Called when the tank has been dead and is ready to rejoin the game.
@@ -180,7 +193,6 @@ namespace Assets.Code
         {
             CanMove = true;
             CanShoot = true;
-            print("abcd3");
             Health = 100;
 
             if (_gameController.IsGameRunning)
@@ -215,9 +227,44 @@ namespace Assets.Code
         }
 
         private int _frameCount = 0;
+        private Queue<Achievement> _achievements = new Queue<Achievement>();
+
+        //Called when the tank dies, and needs to wait a certain time before respawning.
+        private IEnumerator ApplyAchievements()
+        {
+            print("cleared");
+            _gameController.AchivementText.text = "";
+            
+            var achivements = _achievementService.ApplyAchievements(User);
+
+            if (achivements != null && achivements.Any())
+                foreach (var ac in achivements)
+                    _achievements.Enqueue(ac);
+
+            if (_achievements.Count != 0)
+            {
+                var ach = _achievements.Dequeue();
+                print(ach.Title);
+                _gameController.AchivementText.text = ach.Title;
+            }
+      
+            yield return new WaitForSecondsRealtime(5);
+
+            StartCoroutine(ApplyAchievements());
+        }
+
 
         private void FixedUpdate()
         {
+            if (_frameCount % 100 == 0 && !IsBot && User != null)
+            {
+                var achivements = _achievementService.ApplyAchievements(User);
+
+                if (achivements != null && achivements.Any())
+                    foreach (var ac in achivements)
+                        _achievements.Enqueue(ac);
+            }
+
             if (!_gameController.IsGameRunning)
             {
                 transform.position = new Vector3(0, 1000, 0); // Hide tank
