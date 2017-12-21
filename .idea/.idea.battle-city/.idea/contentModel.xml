@@ -29,6 +29,7 @@
               <e p="MapBlock.cs" t="Include" />
               <e p="MapBlockType.cs" t="Include" />
             </e>
+            <e p="ProfileComponent.cs" t="Include" />
           </e>
           <e p="PathFinding" t="Include">
             <e p="Grid.cs" t="Include" />
@@ -39,6 +40,7 @@
           <e p="PlayerControl.cs" t="Include" />
           <e p="TankUser.cs" t="Include" />
         </e>
+        <e p="Lobby.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">

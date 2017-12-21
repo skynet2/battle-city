@@ -7,6 +7,7 @@ namespace Code.Objects.Common
     public class User
     {
         public TankUser Tank;
+        public string Name;
         public long TimePlayed;
         public int KilledEnemies;
         public int DestroedBases;

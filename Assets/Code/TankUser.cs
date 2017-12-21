@@ -95,7 +95,7 @@ namespace Assets.Code
 
         public GameObject Bullet; //The projectile prefab of which the tank can shoot.
         public Transform CannonFront;
-        private AchievementService _achievementService = new AchievementService();
+        private readonly AchievementService _achievementService = new AchievementService();
 
         public void Update()
         {
@@ -113,7 +113,7 @@ namespace Assets.Code
         {
             direction = Vector3.up; //Sets the tank's direction up, as that is the default rotation of the sprite.
             Health = 100;
-            Name = String.Format("Bot {0}", _random.Next(0, 500));
+            Name = string.Format("Bot {0}", _random.Next(0, 500));
             
             if(!IsBot)
                 StartCoroutine(ApplyAchievements());

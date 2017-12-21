@@ -6,12 +6,8 @@ using System.IO;
 using Assets.Code;
 using Code.Objects.Common;
 using Code.Objects.Maps;
-using Code.PathFinding;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
-using Grid = Code.PathFinding.Grid;
 using Random = System.Random;
 
 public class Player
@@ -36,27 +32,25 @@ public class GameController : MonoBehaviour
     public GameObject WinCanvas;
     public GameObject WinTextObject;
     public GameObject AchivementTextGameObject;
-    
-    public Camera Camera;
 
+
+    [HideInInspector] public Random Random = new Random();
+    [HideInInspector] public bool IsGameRunning = true;
+    [HideInInspector] public TextMesh KillsCounterText;
+    [HideInInspector] public Text WinText;
+    [HideInInspector] public Text AchivementText;
+    [HideInInspector] private TextMesh _timeMesh;
+    
     private Player _selfPlayer;
-    public bool IsGameRunning = true;
     private readonly List<Player> _bots = new List<Player>();
-    private readonly List<Vector3> _enemySpawnPoins = new List<Vector3>();
-    private readonly List<Vector3> _selfSpawnPoints = new List<Vector3>();
+    private readonly Dictionary<int, List<Vector3>> _spawnPoins = new Dictionary<int, List<Vector3>>();
+    private readonly Stopwatch _stopwatch = new Stopwatch();
 
-    public Random Random = new Random();
-    public TextMesh KillsCounterText;
-    public Text WinText;
-    private Stopwatch _stopwatch = new Stopwatch();
-    public Text AchivementText;
-    
-    private TextMesh _timeMesh;
 
     // Use this for initialization
     public void Start()
     {
-        Camera = FindObjectOfType<Camera>();
+        #region Prepare Components
 
         TimeGameObject.GetComponent<Renderer>().sortingOrder = 999;
         KillsCounter.GetComponent<Renderer>().sortingOrder = 999;
@@ -66,13 +60,15 @@ public class GameController : MonoBehaviour
         WinCanvas.GetComponent<Canvas>().sortingOrder = -2;
         AchivementText = AchivementTextGameObject.GetComponent<Text>();
         AchivementText.text = "";
-        
+
+        #endregion
+
+        #region Build Map
+
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
         const float yTopBorder = 9.6f;
         const float yBottonBorder = -8f;
-
-        #region Build Map
 
         for (var i = xTopLeftBorder; i < xTopRightBorder + 1; i += 1.125f)
         {
@@ -98,8 +94,8 @@ public class GameController : MonoBehaviour
         var mapData =
             JsonUtility.FromJson<Map>(mapText); // TODO 
 
-        var xLeftOffset = -17.25f;
-        var xRightOffset = 15.75f;
+        const float xLeftOffset = -17.25f;
+        const float xRightOffset = 15.75f;
 
         var xOffset = xLeftOffset;
         var yOffset = 8.8f;
@@ -152,14 +148,14 @@ public class GameController : MonoBehaviour
                     Pos = new Vector3(xOffset, yOffset)
                 });
 
-                if (item.IsSpawn && item.TeamId == 1) // bot
+                if (item.IsSpawn)
                 {
-                    _enemySpawnPoins.Add(new Vector3(xOffset, yOffset));
+                    if (!_spawnPoins.ContainsKey(item.TeamId))
+                        _spawnPoins.Add(item.TeamId, new List<Vector3>());
+
+                    _spawnPoins[item.TeamId].Add(new Vector3(xOffset, yOffset));
                 }
-                if (item.IsSpawn && item.TeamId == 2) // bot
-                {
-                    _selfSpawnPoints.Add(new Vector3(xOffset, yOffset));
-                }
+
                 xOffset += 1.5f;
 
                 if (xOffset > xRightOffset)
@@ -174,96 +170,60 @@ public class GameController : MonoBehaviour
 
         #endregion
 
-        var tilesmap = new float[cells.Count, cells[0].Count];
+        #region Spawn tanks
 
-        for (var i = 0; i < cells.Count - 1; i++)
-        {
-            for (var y = 0; y < cells[0].Count - 1; y++)
-            {
-                try
-                {
-                    tilesmap[i, y] = cells[i][y].Weight;
-                }
-                catch (Exception e)
-                {
-                    var z = 0;
-                }
-            }
-        }
+        _selfPlayer = SpawnTank(2, false);
 
-        var grid = new Grid(cells.Count, cells[0].Count, tilesmap);
-        // create source and target points
-        var _from = new Point(1, 1);
-        var _to = new Point(5, 5);
-        List<Point> path = Pathfinding.FindPath(grid, _from, _to);
-
-
-        const int myTeam = 2;
-
-        var myTeamSpawn = GetRandomSpawnPoint(myTeam);
-
-        var selfTankObject = Instantiate(TankPrefab,
-            myTeamSpawn, Quaternion.identity, LevelObjects.transform);
-
-        selfTankObject.transform.localPosition = myTeamSpawn;
-
-        _selfPlayer = new Player()
-        {
-            GameObject = selfTankObject,
-            Tank = selfTankObject.GetComponent<TankUser>()
-        };
-        _selfPlayer.Tank.TeamId = myTeam;
-        _selfPlayer.Tank.SpriteRenderer.color = _friendlyColor;
-        _selfPlayer.Tank.User = new User();
-        
         for (var i = 0; i < 3; i++)
         {
             const int teamId = 1;
 
-            var pos = GetRandomSpawnPoint(teamId);
-
-            var botTankObject = Instantiate(TankPrefab,
-                pos, Quaternion.identity, LevelObjects.transform);
-
-            botTankObject.transform.localPosition = pos;
-
-            var pl = new Player()
-            {
-                GameObject = botTankObject,
-                Tank = botTankObject.GetComponent<TankUser>()
-            };
-
-            pl.Tank.SpriteRenderer.color = _enemyColor;
-            pl.Tank.IsBot = true;
-            pl.Tank.TeamId = teamId;
-
-            _bots.Add(pl);
+            _bots.Add(SpawnTank(teamId, true));
         }
+
+
+        #endregion
 
         _stopwatch.Start();
     }
 
+    private Player SpawnTank(int teamId, bool isBot)
+    {
+        var pos = GetRandomSpawnPoint(teamId);
+
+        var botTankObject = Instantiate(TankPrefab,
+            pos, Quaternion.identity, LevelObjects.transform);
+
+        botTankObject.transform.localPosition = pos;
+
+        var pl = new Player()
+        {
+            GameObject = botTankObject,
+            Tank = botTankObject.GetComponent<TankUser>()
+        };
+
+        pl.Tank.SpriteRenderer.color = teamId == 1 ? _enemyColor : _friendlyColor;
+        pl.Tank.IsBot = isBot;
+        pl.Tank.TeamId = teamId;
+
+        return pl;
+    }
+
     public Vector3 GetRandomSpawnPoint(int teamId)
     {
-        var spawn = Vector3.back;
+        var points = _spawnPoins[teamId];
 
-        if (teamId == 1)
-            spawn = _enemySpawnPoins[Random.Next(0, _enemySpawnPoins.Count * 100) / 100];
-        else if (teamId == 2)
-            spawn = _selfSpawnPoints[Random.Next(0, _selfSpawnPoints.Count * 100) / 100]; // TODO local spawns
-
-        return spawn;
+        return points[Random.Next(0, points.Count * 100) / 100];
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (!IsGameRunning)
-        {            
+        {
             WinCanvas.GetComponent<Canvas>().sortingOrder = 9999;
-  
         }
-        
+
         if (_timeMesh != null && IsGameRunning)
             _timeMesh.text = string.Format("{0:00}:{1:00}", _stopwatch.Elapsed.Minutes, _stopwatch.Elapsed.Seconds);
     }

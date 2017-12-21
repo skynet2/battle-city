@@ -11,7 +11,7 @@ namespace Assets.Code
     public class Bullet : MonoBehaviour
     {
         //[Header("References")] public GameObject HitEffect;
-        
+
         [HideInInspector] public TankUser Tank; //The tank which shot this projectile.
         [HideInInspector] public int Damage;
         [HideInInspector] public Rigidbody2D Rig;
@@ -20,6 +20,7 @@ namespace Assets.Code
         private void Awake()
         {
             _gameController = FindObjectOfType<GameController>();
+            
             Rig = GetComponent<Rigidbody2D>();
         }
 
@@ -27,31 +28,20 @@ namespace Assets.Code
         {
             var obj = col.gameObject.GetComponent<BaseDestroyable>();
 
-            if (obj != null) 
+            if (obj != null)
             {
-                var result = obj.Damage(Damage, Tank);                            
+                obj.Damage(Damage, Tank);
             }
 
-           
-//            if (col.gameObject.tag.Equals("tank", StringComparison.InvariantCultureIgnoreCase))
-//            {
-//                var enemyTank = col.gameObject.GetComponent<TankUser>();
-//
-//                enemyTank.Damage(Damage, TankId);
-//            }
-            
             Explode();
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
-        void Explode()
+        private void Explode()
         {
-            //Particle Effect
-           // var obj = Instantiate(HitEffect, transform.position, Quaternion.identity);   //Spawn the hit particle effect at the position of impact.
-         //   Destroy(obj, 1.0f);   //Destroy that effect after 1 second.
-            Destroy(gameObject);        //Destroy the bullet.
+            Destroy(gameObject);
         }
     }
 }
