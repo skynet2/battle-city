@@ -45,6 +45,10 @@ namespace Assets.Code
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
     
             if (Input.GetKeyDown(Shoot) && _tank.CanShoot)
             {
