@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     [HideInInspector] public Text WinText;
     [HideInInspector] public Text AchivementText;
     [HideInInspector] private TextMesh _timeMesh;
-    
+
     private Player _selfPlayer;
     private readonly List<Player> _bots = new List<Player>();
     private readonly Dictionary<int, List<Vector3>> _spawnPoins = new Dictionary<int, List<Vector3>>();
@@ -89,10 +89,11 @@ public class GameController : MonoBehaviour
                 LevelObjects.transform);
             obj.transform.localPosition = new Vector3(xTopRightBorder, i);
         }
+        
+        var mapText = File.ReadAllText(Path.Combine(Application.dataPath, "Resources/map1.json"));
 
-        var mapText = File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\map1.json");
         var mapData =
-            JsonUtility.FromJson<Map>(mapText); // TODO 
+            JsonUtility.FromJson<Map>(mapText);
 
         const float xLeftOffset = -17.25f;
         const float xRightOffset = 15.75f;
@@ -181,7 +182,6 @@ public class GameController : MonoBehaviour
             _bots.Add(SpawnTank(teamId, true));
         }
 
-
         #endregion
 
         _stopwatch.Start();
@@ -206,6 +206,9 @@ public class GameController : MonoBehaviour
         pl.Tank.IsBot = isBot;
         pl.Tank.TeamId = teamId;
 
+        if (!isBot)
+            pl.Tank.User = new User();
+        
         return pl;
     }
 
