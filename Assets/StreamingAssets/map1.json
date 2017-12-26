@@ -116,15 +116,15 @@
         },
         {
           "Type": 2,
-		  "TeamId": 1
+          "TeamId": 1
         },
         {
           "Type": 2,
-		  "TeamId": 1
+          "TeamId": 1
         },
         {
           "Type": 2,
-		  "TeamId": 1
+          "TeamId": 1
         },
         {
           "Type": 0
@@ -161,592 +161,10 @@
     {
       "MapData": [
         {
-          "Type": 0
+          "Type": 0,
+          "IsSpawn": 1,
+          "TeamId": 1
         },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 2
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 2
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 2
-        },
-        {
-          "Type": 1
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 1
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        }
-      ]
-    },
-    {
-      "MapData": [
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 2,
-		  "TeamId": 2
-        },
-        {
-          "Type": 2,
-		  "TeamId": 2
-        },
-        {
-          "Type": 2,
-		  "TeamId": 2
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        },
-        {
-          "Type": 0
-        }
-      ]
-    },
-    {
-      "MapData": [
         {
           "Type": 0
         },
@@ -776,24 +194,760 @@
         },
         {
           "Type": 0,
-		  "IsSpawn": 1,
+          "TeamId": 1
+        },
+        {
+          "Type": 0,
+          "TeamId": 1
+        },
+        {
+          "Type": 0,
+          "TeamId": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 2
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 2
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 2
+        },
+        {
+          "Type": 1
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 1
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0,
+          "TeamId": 0
+        },
+        {
+          "Type": 0,
+          "TeamId": 0
+        },
+        {
+          "Type": 0,
+          "TeamId": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 2,
           "TeamId": 2
         },
         {
           "Type": 2,
-		  "TeamId": 2
-        },
-        {
-          "Type": 4,
-		  "TeamId": 2
+          "TeamId": 2
         },
         {
           "Type": 2,
-		  "TeamId": 2
+          "TeamId": 2
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        }
+      ]
+    },
+    {
+      "MapData": [
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
+        },
+        {
+          "Type": 0
         },
         {
           "Type": 0,
-		  "IsSpawn": 1,
+          "IsSpawn": 1,
+          "TeamId": 2
+        },
+        {
+          "Type": 2,
+          "TeamId": 2
+        },
+        {
+          "Type": 4,
+          "TeamId": 2
+        },
+        {
+          "Type": 2,
+          "TeamId": 2
+        },
+        {
+          "Type": 0,
+          "IsSpawn": 1,
           "TeamId": 2
         },
         {

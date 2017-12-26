@@ -67,8 +67,8 @@ public class GameController : MonoBehaviour
 
         const float xTopLeftBorder = -18.75f;
         const float xTopRightBorder = 17.25f;
-        const float yTopBorder = 9.6f;
-        const float yBottonBorder = -8f;
+        const float yTopBorder = 12f;
+        const float yBottonBorder = -10.4f;
 
         for (var i = xTopLeftBorder; i < xTopRightBorder + 1; i += 1.125f)
         {
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
         const float xRightOffset = 15.75f;
 
         var xOffset = xLeftOffset;
-        var yOffset = 8.8f;
+        var yOffset = 10.4f;
         var cells = new List<List<Cell>>();
 
         foreach (var row in mapData.MapRow)
