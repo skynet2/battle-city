@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
             obj.transform.localPosition = new Vector3(xTopRightBorder, i);
         }
         
-        var mapText = File.ReadAllText(Path.Combine(Application.dataPath, "Resources/map1.json"));
+        var mapText = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "map1.json"));
 
         var mapData =
             JsonUtility.FromJson<Map>(mapText);

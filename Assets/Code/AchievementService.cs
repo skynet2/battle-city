@@ -17,7 +17,7 @@ namespace Assets.Code
                 return _achievements;
 
             _achievements = JsonUtility.FromJson<AchievementContainer>(
-                File.ReadAllText(@"C:\ExtraSSD\Git\Github\battle-city\Assets\Code\Map\achevements.json")).Items; // TODO
+                File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "achevements.json"))).Items;
 
             return _achievements;
         }
